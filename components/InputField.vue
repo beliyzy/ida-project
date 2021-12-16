@@ -48,7 +48,7 @@ export default {
   background-color: #FF8484;
   border-radius: 50%;
 }
-@media (max-width: 1500px) {
+@media (max-width: 1400px) {
   input,textarea {
     font-size: 10px;
   }

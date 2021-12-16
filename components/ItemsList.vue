@@ -29,10 +29,21 @@ export default {
 </script>
 
 <style lang="scss">
-.items-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  margin-left: 16px;
+@media (max-width: 2000px){
+  .items-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin-left: 16px;
+  }
 }
+@media (max-width: 1600px){
+  .items-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-left: 16px;
+  }
+}
+
 </style>
