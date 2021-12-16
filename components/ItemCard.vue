@@ -36,7 +36,12 @@ export default {
   width: 300px;
   cursor: pointer;
   position: relative;
-
+  &__img {
+    img {
+      width: 300px;
+      height: 200px;
+    }
+  }
   &__info {
     padding: 16px 16px 24px;
     display: flex;
