@@ -2,8 +2,9 @@
   <button
     type="button"
     class="button"
-    @click="$emit('addItem')"
-    :class="{activeBtn: isDone}"
+    :class="{activeBtn: isValidForm}"
+    :disabled="!isValidForm"
+    @click="$emit('addItem'); $emit('clearForm')"
   >
     {{ title }}
   </button>
@@ -11,14 +12,13 @@
 
 <script>
 export default {
-  data () {
-    return {
-      isDone: true
-    }
-  },
   props: {
     title: {
       type: String,
+      required: true
+    },
+    isValidForm: {
+      type: Boolean,
       required: true
     }
   }
