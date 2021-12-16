@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <div
-      v-if="list.length"
-      class="items-list"
-    >
-      <ItemCard
-        v-for="item in list"
-        :key="item.id"
-        :item="item"
-        @delete="$emit('deleteItem', item.id)"
-      />
-    </div>
-    <div
-      v-else
-    >
-      <h1>No Data</h1>
-    </div>
+  <div
+    v-if="list.length"
+    class="items-list"
+  >
+    <ItemCard
+      v-for="item in list"
+      :key="item.id"
+      :item="item"
+      @delete="$emit('deleteItem', item.id)"
+    />
+  </div>
+  <div
+    v-else
+  >
+    <h1>No Data</h1>
   </div>
 </template>
 
@@ -32,8 +30,9 @@ export default {
 .items-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 16px;
+  gap: 30px;
   margin-left: 16px;
+  margin-top: 24px;
 }
 
 @media (max-width: 1440px) {

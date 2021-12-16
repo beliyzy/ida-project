@@ -1,7 +1,12 @@
 <template>
   <div class="container">
+    <div class="top-info">
+      <Title>Добавление товара</Title>
+      <Select/>
+    </div>
     <div class="wrapper">
       <AddForm @add-item="addItem"/>
+      <Select/>
       <ItemsList
         :list="list"
         @deleteItem="deleteItem"/>
@@ -10,61 +15,29 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapGetters } from 'vuex'
+
 export default {
   layout: 'default',
-  data () {
-    return {
-      list: [
-        {
-          id: 1,
-          title: 'Товар 1',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, repellendus!',
-          price: '10 000',
-          img: 'https://picsum.photos/300/200'
-        },
-        {
-          id: 2,
-          title: 'Товар 2',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, repellendus!',
-          price: '1 000',
-          img: 'https://picsum.photos/300/200'
-        },
-        {
-          id: 3,
-          title: 'Товар 3',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, repellendus!',
-          price: '20 000',
-          img: 'https://picsum.photos/300/200'
-        },
-        {
-          id: 4,
-          title: 'Товар 4',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, repellendus!',
-          price: '100 000',
-          img: 'https://picsum.photos/300/200'
-        }
-      ]
-    }
+  computed: {
+    ...mapGetters(['sortedListByMin', 'sortedListByMax']),
+    ...mapState({
+      list: state => state.list
+    })
   },
   methods: {
+    ...mapMutations(['delete', 'add']),
     deleteItem (id) {
-      this.list = this.list.filter(item => item.id !== id)
+      this.delete(id)
     },
     addItem ({ title, description, price, img }) {
-      this.list.push({
-        id: Date.now(),
-        title,
-        description,
-        price,
-        img
-      })
+      this.add({ title, description, price, img })
     }
   }
 }
 </script>
 
 <style lang="scss">
-//1440, 768, 320
 * {
   margin: 0;
   padding: 0;
@@ -80,9 +53,43 @@ body {
   margin: 32px;
 }
 
+.top-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  select {
+    margin-right: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    select {
+      margin-right: 100px;
+    }
+  }
+  @media (max-width: 768px) {
+    select {
+      display: none;
+    }
+    justify-content: center;
+  }
+}
+
 .wrapper {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+
+  select {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    select {
+      display: block;
+      margin: 20px auto 0 auto;
+    }
+  }
 }
 @media (max-width: 768px) {
   .wrapper {

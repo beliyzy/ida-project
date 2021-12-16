@@ -22,4 +22,10 @@ export default {}
     font-size: 20px;
   }
 }
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+}
 </style>
