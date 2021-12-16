@@ -1,5 +1,6 @@
 <template>
   <div class="form">
+    <Title>Добавление товара</Title>
     <form>
       <InputField
         :required="true"
@@ -72,11 +73,26 @@ export default {
   height: 100%;
   position: sticky;
   top: 24px;
-
   .btn {
     margin-top: 24px;
   }
+}
 
+@media (max-width: 768px) {
+  .form {
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+  }
+}
+@media (max-width: 425px) {
+  .form {
+    width: 75%;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+  }
 }
 
 </style>

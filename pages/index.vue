@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <Title>Добавление товара</Title>
     <div class="wrapper">
       <AddForm @add-item="addItem"/>
       <ItemsList
@@ -84,5 +83,10 @@ body {
 .wrapper {
   display: flex;
   flex-direction: row;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
 }
 </style>

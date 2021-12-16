@@ -29,21 +29,42 @@ export default {
 </script>
 
 <style lang="scss">
-@media (max-width: 2000px){
-  .items-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
-    margin-left: 16px;
-  }
+.items-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin-left: 16px;
 }
-@media (max-width: 1600px){
+
+@media (max-width: 1440px) {
   .items-list {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-left: 16px;
+    gap: 80px;
   }
 }
 
+@media (max-width: 1024px) {
+  .items-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .items-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 30px auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .items-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 </style>

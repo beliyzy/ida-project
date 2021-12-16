@@ -4,7 +4,7 @@
       {{ inputTitle }}
       <div
         v-if="required"
-        class="input_required" />
+        class="input_required"/>
     </div>
     <div class="input">
       <slot/>
@@ -48,11 +48,7 @@ export default {
   background-color: #FF8484;
   border-radius: 50%;
 }
-@media (max-width: 1400px) {
-  input,textarea {
-    font-size: 10px;
-  }
-}
+
 .input {
   background: #FFFEFB;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -87,5 +83,35 @@ textarea {
   font-family: inherit;
   resize: none;
   height: 110px;
+}
+
+@media (max-width: 1440px) {
+  input, textarea {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  input, textarea {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  input, textarea {
+    font-size: 12px;
+  }
+  .input__title {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  input, textarea {
+    font-size: 12px;
+  }
+  .input__title {
+    font-size: 12px;
+  }
 }
 </style>
