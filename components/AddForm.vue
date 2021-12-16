@@ -6,6 +6,7 @@
         input-title="Наименование товара"
       >
         <input
+          v-model="title"
           type="text"
           placeholder="Введите наименование товара"
         >
@@ -13,13 +14,17 @@
       <InputField
         input-title="Описание товара"
       >
-        <textarea placeholder="Введите описание товара"/>
+        <textarea
+          v-model="description"
+          placeholder="Введите описание товара"
+        />
       </InputField>
       <InputField
         :required="true"
         input-title="Ссылка на изображение товара"
       >
         <input
+          v-model="img"
           type="text"
           placeholder="Введите ссылку"
         >
@@ -29,6 +34,7 @@
         input-title="Цена товара"
       >
         <input
+          v-model="price"
           type="text"
           placeholder="Введите цену"
         >
@@ -37,12 +43,22 @@
     <Button
       class="btn"
       title="Добавить товар"
+      @addItem="$emit('add-item', {title, description, price, img})"
     />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      title: '',
+      description: '',
+      price: '',
+      img: ''
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -51,7 +67,11 @@ export default {}
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
   width: 20%;
   padding: 24px;
-  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: sticky;
+  top: 24px;
 
   .btn {
     margin-top: 24px;

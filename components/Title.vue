@@ -16,4 +16,10 @@ export default {}
   line-height: 35px;
   color: #3F3F3F;
 }
+
+@media (max-width: 1500px) {
+  .title {
+    font-size: 20px;
+  }
+}
 </style>

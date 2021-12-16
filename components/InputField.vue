@@ -48,7 +48,11 @@ export default {
   background-color: #FF8484;
   border-radius: 50%;
 }
-
+@media (max-width: 1500px) {
+  input,textarea {
+    font-size: 10px;
+  }
+}
 .input {
   background: #FFFEFB;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -81,7 +85,6 @@ input, textarea {
 
 textarea {
   font-family: inherit;
-  font-size: inherit;
   resize: none;
   height: 110px;
 }

@@ -1,8 +1,8 @@
 <template>
   <button
     type="button"
-    :disabled="!isDone"
     class="button"
+    @click="$emit('addItem')"
     :class="{activeBtn: isDone}"
   >
     {{ title }}
@@ -13,7 +13,7 @@
 export default {
   data () {
     return {
-      isDone: false
+      isDone: true
     }
   },
   props: {
