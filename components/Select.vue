@@ -1,5 +1,8 @@
 <template>
-  <select>
+  <select
+    v-model="selected"
+    @change="$emit('sortList', selected)"
+  >
     <option selected value="byName">По названию</option>
     <option value="byMinToMax">По цене min</option>
     <option value="byMaxToMin">По цене max</option>
@@ -8,6 +11,11 @@
 
 <script>
 export default {
+  data () {
+    return {
+      selected: ''
+    }
+  }
 }
 </script>
 

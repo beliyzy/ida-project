@@ -11,6 +11,7 @@
           v-model="title"
           type="text"
           placeholder="Введите наименование товара"
+          :class="title === '' ? 'invalidInput' : ''"
         >
       </InputField>
       <p
@@ -34,6 +35,7 @@
           v-model="img"
           type="text"
           placeholder="Введите ссылку"
+          :class="img === '' ? 'invalidInput' : ''"
         >
       </InputField>
       <p
@@ -47,9 +49,10 @@
       >
         <input
           v-model="price"
-          @change="price = price.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')"
-          type="text"
           placeholder="Введите цену"
+          :class="price === '' ? 'invalidInput' : ''"
+          type="text"
+          @change="price = price.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')"
         >
       </InputField>
       <p
@@ -114,6 +117,10 @@ export default {
   .btn {
     margin-top: 24px;
   }
+}
+
+.invalidInput {
+  border: 1px solid #FF8484;
 }
 
 .error-message {

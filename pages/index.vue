@@ -2,11 +2,11 @@
   <div class="container">
     <div class="top-info">
       <Title>Добавление товара</Title>
-      <Select/>
+      <Select @sortList="sortList"/>
     </div>
     <div class="wrapper">
       <AddForm @add-item="addItem"/>
-      <Select/>
+      <Select @sortList="sortList"/>
       <ItemsList
         :list="list"
         @deleteItem="deleteItem"/>
@@ -20,18 +20,21 @@ import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
   layout: 'default',
   computed: {
-    ...mapGetters(['sortedListByMin', 'sortedListByMax']),
+    ...mapGetters(['sortedListByMin', 'sortedListByMax', 'sortedListByName']),
     ...mapState({
       list: state => state.list
     })
   },
   methods: {
-    ...mapMutations(['delete', 'add']),
+    ...mapMutations(['delete', 'add', 'sort']),
     deleteItem (id) {
       this.delete(id)
     },
     addItem ({ title, description, price, img }) {
       this.add({ title, description, price, img })
+    },
+    sortList (value) {
+      this.sort(value)
     }
   }
 }
@@ -64,7 +67,7 @@ body {
 
   @media (max-width: 1024px) {
     select {
-      margin-right: 100px;
+      margin: 0;
     }
   }
   @media (max-width: 768px) {
@@ -91,6 +94,7 @@ body {
     }
   }
 }
+
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;

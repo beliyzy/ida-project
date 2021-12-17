@@ -52,23 +52,29 @@ export default {
 .input {
   background: #FFFEFB;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
   color: #B4B4B4;
   transition: .3s box-shadow;
-
+  border-radius: 4px;
   &:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   }
 }
-
+textarea {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
 input, textarea {
   width: 100%;
   border: none;
   padding: 10px 15px;
+  border-radius: 4px;
 
   &:focus {
     color: #212529;

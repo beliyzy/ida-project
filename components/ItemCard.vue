@@ -36,6 +36,7 @@ export default {
   width: 300px;
   cursor: pointer;
   position: relative;
+
   &__img {
     img {
       width: 300px;
@@ -54,6 +55,11 @@ export default {
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   &__description {
@@ -61,6 +67,11 @@ export default {
     font-size: 16px;
     line-height: 20px;
     margin-top: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
   &__price {
