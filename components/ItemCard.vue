@@ -1,5 +1,9 @@
 <template>
-  <div class="item-card">
+  <div
+    class="item-card"
+    @mouseover="showDeleteIcon = true"
+    @mouseleave="showDeleteIcon = false"
+  >
     <div class="item-card__img">
       <img :src="item.img" alt="CardPhoto">
     </div>
@@ -10,6 +14,7 @@
     </div>
     <div
       class="item-card__delete-btn"
+      v-if="showDeleteIcon"
       @click="$emit('delete', item.id)"
     >
       <img src="@/assets/img/delete.svg" alt="delete">
@@ -21,6 +26,11 @@
 export default {
   props: {
     item: Object
+  },
+  data () {
+    return {
+      showDeleteIcon: false
+    }
   }
 }
 </script>
@@ -43,6 +53,7 @@ export default {
       height: 200px;
     }
   }
+
   &__info {
     padding: 16px 16px 24px;
     display: flex;
@@ -99,6 +110,7 @@ export default {
     &:active {
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.9);
     }
+
     img {
       padding: 8px;
     }
